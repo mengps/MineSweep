@@ -6,21 +6,21 @@ class QLabel;
 
 class MainWindow : public QMainWindow
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
     MainWindow(QWidget *parent = Q_NULLPTR);
     ~MainWindow();
 
 protected:
-	void timerEvent(QTimerEvent *event);
-	void keyPressEvent(QKeyEvent *event);
-	void resizeEvent(QResizeEvent *event);
-	void mousePressEvent(QMouseEvent *event);
+    void timerEvent(QTimerEvent *event);
+    void keyPressEvent(QKeyEvent *event);
+    void resizeEvent(QResizeEvent *event);
+    void mousePressEvent(QMouseEvent *event);
 
-	public slots:
-	void updateToolbar();
-	void restart();
+public slots:
+    void updateToolbar();
+    void restart();
 
 private:
     int m_timeId;

@@ -31,3 +31,5 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
         minesweep.h
+
+RC_ICONS += winIcon.ico
