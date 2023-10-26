@@ -1,4 +1,4 @@
-﻿#include <QTime>
+#include <QTime>
 #include <QPainter>
 #include <QMouseEvent>
 #include "minesweep.h"
@@ -142,23 +142,23 @@ void MineSweep::paintEvent(QPaintEvent *event)
             {
                 painter.fillRect(rect, palette().light());
                 painter.setPen(QColor(30, 120, 115));
-                painter.drawText(rect, Qt::AlignCenter, QString("★"));
+                painter.drawText(rect, Qt::AlignCenter, u8"★");
             }
             else if (m_map[i][j].stat == successful)
             {
                 painter.fillRect(rect, palette().dark());
                 painter.setPen(Qt::black);
-                painter.drawText(rect, Qt::AlignCenter, QString("*"));
+                painter.drawText(rect, Qt::AlignCenter, "*");
                 painter.setPen(Qt::red);
-                painter.drawText(rect, Qt::AlignCenter, QString("√"));
+                painter.drawText(rect, Qt::AlignCenter, u8"✔");
             }
             else if (m_map[i][j].stat == unsuccessful)
             {
                 painter.fillRect(rect, palette().dark());
                 painter.setPen(Qt::red);
-                painter.drawText(rect, Qt::AlignCenter, QString("★"));
+                painter.drawText(rect, Qt::AlignCenter, u8"★");
                 painter.setPen(Qt::black);
-                painter.drawText(rect, Qt::AlignCenter, QString("×"));
+                painter.drawText(rect, Qt::AlignCenter, u8"✘");
             }
         }
     }

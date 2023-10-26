@@ -1,4 +1,4 @@
-﻿#include <QTime>
+#include <QTime>
 #include <QLabel>
 #include <QToolBar>
 #include <QPushButton>
@@ -8,6 +8,8 @@
 MainWindow::MainWindow(QWidget *parent)
     :   QMainWindow(parent)
 {
+    setWindowTitle(u8"扫雷");
+
     m_mineSweep = new MineSweep(this);
     setCentralWidget(m_mineSweep);
 
@@ -16,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_curMine = new QLabel(this);
     m_curTime = new QLabel(this);
-    m_button = new QPushButton(QString("清空"));
+    m_button = new QPushButton(u8"清空");
     m_button->setFixedHeight(25);
     connect(m_button, SIGNAL(clicked()), this, SLOT(restart()));
     connect(m_mineSweep, SIGNAL(press()), this, SLOT(updateToolbar()));
@@ -33,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     addToolBar(m_toolBar);
 
     setContextMenuPolicy(Qt::NoContextMenu);
-    resize(500, 500);
+    resize(700, 700);
     updateToolbar();
 }
 
@@ -71,7 +73,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     {
         if (m_mineSweep->rect().contains(event->pos()))
         {
-            m_curMine->setText(QString("地雷数：%1").arg(m_mineSweep->mine()));
+            m_curMine->setText(QString(u8"地雷数：%1").arg(m_mineSweep->mine()));
             m_toolBar->update();
         }
         if (m_button->isChecked())
@@ -91,8 +93,8 @@ void MainWindow::timerEvent(QTimerEvent *event)
 
 void MainWindow::updateToolbar()
 {
-    m_curMine->setText(QString("地雷数：%1").arg(m_mineSweep->mine()));
-    m_curTime->setText(QString("已用时间：%1").arg(m_passTime));
+    m_curMine->setText(QString(u8"地雷数：%1").arg(m_mineSweep->mine()));
+    m_curTime->setText(QString(u8"已用时间：%1").arg(m_passTime));
     m_toolBar->update();
 }
 

@@ -6,6 +6,10 @@
 
 QT       += core gui
 
+CONFIG += c++11
+
+msvc: QMAKE_CXXFLAGS += /utf-8
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = minesweep
